@@ -16,10 +16,12 @@ function numberOfWays(cases) {
   let num_array = [];
 
   for (let i = 0; i < cases.length; i++) {
+  // the below is simply extracting the ith N and M from the array of 2x2 arrays.
     let N = cases[i][0];
     let M = cases[i][1];
 
     var num_ways = 0;
+    //
     while (N > 0 && M > 0) {
       num_ways += N * M;
       N = N - 1;
