@@ -55,6 +55,7 @@ def print_singly_linked_list(node, sep, fptr):
 
 
 def removeKthLinkedListNode(head, k):
+
     # get the length of the linked list first
     len = 0
     node = head
@@ -86,9 +87,11 @@ def removeKthLinkedListNode(head, k):
         node = node.next
         count += 1
 
+    # remove the kth node:
     prev_node = node
     kth_node = prev_node.next
     next_node = kth_node.next
+    # this is the line that removes the node
     prev_node.next = next_node
 
     return head

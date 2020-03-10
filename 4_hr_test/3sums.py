@@ -17,13 +17,19 @@ import sys
 
 def threeNumberSum(arr, target):
     # Write your code here
+
+    #sorted since we need to give sorted solutions
     arr.sort()
+
+    #all sets of 3s will be stored in this array
     triplets = []
+
+    #get the length so that we can iterate over the array
     n = len(arr)
     idx = 0
 
     dict_ele = dict()
-    # store all elements in a hashtable first
+    # store all elements in a hashtable first for retrieval later
     while idx < n:
         dict_ele[arr[idx]] = idx
         idx += 1
@@ -31,14 +37,14 @@ def threeNumberSum(arr, target):
     # fix the ith element arr[i]
     for i in range(0, n):
 
-        # are there any pairs with (sum1+sum2)=target-arr[i]? if so, can utilize the 2sum strategy from sprint
+        # are there any pairs with (num1+num2)=target-arr[i]? if so, can utilize the 2sum strategy from sprint
         sum_of_2 = target-arr[i]
 
         for num1 in arr:
             # making sure we don't double count arr[i]
             if num1 != arr[i]:
                 num2 = sum_of_2-num1
-                # making sure we don't double count arr[i] and num1
+                # making sure we don't double count arr[i] and num3
                 # aslo checking to see if num2 is in the dict
                 if num2 != num1 and num2 != arr[i] and num2 in dict_ele:
                     # if it is, that means we've found a triplet
